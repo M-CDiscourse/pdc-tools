@@ -17,7 +17,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f4f6;min-height:100vh
 .prog-bar{height:100%;background:var(--t);transition:width .4s;width:0%}
 .card{background:white;border-radius:0 0 12px 12px;border:1px solid var(--border);border-top:none}
 .screen{padding:28px 26px 22px}
-.screen.hidden{display:none}
+.screen.hidden{display:none}.nav-row.hidden{display:none!important}
 .step-lbl{font-size:11px;font-weight:700;color:var(--t);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
 .domain-title{font-size:19px;font-weight:700;color:var(--td);margin-bottom:4px}
 .domain-sub{font-size:13px;color:var(--muted);margin-bottom:22px;line-height:1.5}
@@ -430,11 +430,8 @@ function goTo(n){
   for(var i=0;i<=10;i++){
     var s=document.getElementById('s'+i);
     var nav=document.getElementById('n'+i);
-    if(s)s.className='screen'+(i===n?'':' hidden');
-    if(nav&&i!==10){
-      if(i===n)nav.className=nav.className.replace(' hidden','');
-      else if(nav.className.indexOf('hidden')===-1)nav.className+=' hidden';
-    }
+    if(s){s.style.display=(i===n)?'block':'none';}
+    if(nav){nav.style.display=(i===n)?'flex':'none';}
   }
   document.getElementById('prog').style.width=Math.round((n/TOTAL)*100)+'%';
   buildDots(n);
