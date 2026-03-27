@@ -17,7 +17,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f4f6;min-height:100vh
 .prog-bar{height:100%;background:var(--t);transition:width .4s;width:0%}
 .card{background:white;border-radius:0 0 12px 12px;border:1px solid var(--border);border-top:none}
 .screen{padding:28px 26px 22px}
-.screen.hidden{display:none}.nav-row.hidden{display:none!important}
+.screen.hidden{display:none}
 .step-lbl{font-size:11px;font-weight:700;color:var(--t);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
 .domain-title{font-size:19px;font-weight:700;color:var(--td);margin-bottom:4px}
 .domain-sub{font-size:13px;color:var(--muted);margin-bottom:22px;line-height:1.5}
@@ -124,7 +124,7 @@ textarea:focus,select:focus{border-color:var(--t)}
       </div>
     </div>
   </div>
-  <div class="nav-row hidden" id="n1">
+  <div class="nav-row" id="n1">
     <button class="back-btn" onclick="goTo(0)">Back</button>
     <div class="dots" id="dots1"></div>
     <button class="next-btn" onclick="goTo(2)">Next</button>
@@ -151,7 +151,7 @@ textarea:focus,select:focus{border-color:var(--t)}
     <textarea id="open_d1" placeholder="Your response (optional)"></textarea>
     <div class="err-note hidden" id="err2">Please respond to all rating questions before continuing.</div>
   </div>
-  <div class="nav-row hidden" id="n2">
+  <div class="nav-row" id="n2">
     <button class="back-btn" onclick="goTo(1)">Back</button>
     <div class="dots" id="dots2"></div>
     <button class="next-btn" onclick="nextDomain(2,3,['d1q0','d1q1','d1q2'])">Next</button>
@@ -178,7 +178,7 @@ textarea:focus,select:focus{border-color:var(--t)}
     <textarea id="open_d2" placeholder="Your response (optional)"></textarea>
     <div class="err-note hidden" id="err3">Please respond to all rating questions before continuing.</div>
   </div>
-  <div class="nav-row hidden" id="n3">
+  <div class="nav-row" id="n3">
     <button class="back-btn" onclick="goTo(2)">Back</button>
     <div class="dots" id="dots3"></div>
     <button class="next-btn" onclick="nextDomain(3,4,['d2q0','d2q1','d2q2'])">Next</button>
@@ -209,7 +209,7 @@ textarea:focus,select:focus{border-color:var(--t)}
     <textarea id="open_d3" placeholder="Your response (optional)"></textarea>
     <div class="err-note hidden" id="err4">Please respond to all rating questions before continuing.</div>
   </div>
-  <div class="nav-row hidden" id="n4">
+  <div class="nav-row" id="n4">
     <button class="back-btn" onclick="goTo(3)">Back</button>
     <div class="dots" id="dots4"></div>
     <button class="next-btn" onclick="nextDomain(4,5,['d3q0','d3q1','d3q2','d3q3'])">Next</button>
@@ -240,7 +240,7 @@ textarea:focus,select:focus{border-color:var(--t)}
     <textarea id="open_d4" placeholder="Your response (optional)"></textarea>
     <div class="err-note hidden" id="err5">Please respond to all rating questions before continuing.</div>
   </div>
-  <div class="nav-row hidden" id="n5">
+  <div class="nav-row" id="n5">
     <button class="back-btn" onclick="goTo(4)">Back</button>
     <div class="dots" id="dots5"></div>
     <button class="next-btn" onclick="nextDomain(5,6,['d4q0','d4q1','d4q2','d4q3'])">Next</button>
@@ -271,7 +271,7 @@ textarea:focus,select:focus{border-color:var(--t)}
     <textarea id="open_d5" placeholder="Your response (optional)"></textarea>
     <div class="err-note hidden" id="err6">Please respond to all rating questions before continuing.</div>
   </div>
-  <div class="nav-row hidden" id="n6">
+  <div class="nav-row" id="n6">
     <button class="back-btn" onclick="goTo(5)">Back</button>
     <div class="dots" id="dots6"></div>
     <button class="next-btn" onclick="nextDomain(6,7,['d5q0','d5q1','d5q2','d5q3'])">Next</button>
@@ -298,7 +298,7 @@ textarea:focus,select:focus{border-color:var(--t)}
     <textarea id="open_d6" placeholder="Your response (optional)"></textarea>
     <div class="err-note hidden" id="err7">Please respond to all rating questions before continuing.</div>
   </div>
-  <div class="nav-row hidden" id="n7">
+  <div class="nav-row" id="n7">
     <button class="back-btn" onclick="goTo(6)">Back</button>
     <div class="dots" id="dots7"></div>
     <button class="next-btn" onclick="nextDomain(7,8,['d6q0','d6q1','d6q2'])">Next</button>
@@ -329,7 +329,7 @@ textarea:focus,select:focus{border-color:var(--t)}
     <textarea id="open_d7" placeholder="Your response (optional)"></textarea>
     <div class="err-note hidden" id="err8">Please respond to all rating questions before continuing.</div>
   </div>
-  <div class="nav-row hidden" id="n8">
+  <div class="nav-row" id="n8">
     <button class="back-btn" onclick="goTo(7)">Back</button>
     <div class="dots" id="dots8"></div>
     <button class="next-btn" onclick="nextDomain(8,9,['d7q0','d7q1','d7q2','d7q3'])">Final Step</button>
@@ -345,7 +345,7 @@ textarea:focus,select:focus{border-color:var(--t)}
     <label class="open-lbl">Is there anything else you want the program designer to know about your experience as a new teacher here?</label>
     <textarea id="ref_other" placeholder="Your response (optional)"></textarea>
   </div>
-  <div class="nav-row hidden" id="n9">
+  <div class="nav-row" id="n9">
     <button class="back-btn" onclick="goTo(8)">Back</button>
     <div class="dots" id="dots9"></div>
     <button class="next-btn" onclick="submitSurvey()">Submit Survey</button>
@@ -524,7 +524,16 @@ function copyResults(){
   });
 }
 
-goTo(0);
+// Initialize: hide everything first, then show screen 0
+(function(){
+  for(var i=0;i<=10;i++){
+    var s=document.getElementById('s'+i);
+    var nav=document.getElementById('n'+i);
+    if(s)s.style.display='none';
+    if(nav)nav.style.display='none';
+  }
+  goTo(0);
+})();
 </script>
 </body>
 </html>
