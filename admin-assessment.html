@@ -215,7 +215,12 @@ async function sendMessage(){
     }
   }catch(e){
     removeTyping();
-    document.getElementById('errArea').innerHTML='<div class="error">Connection issue: '+e.message+'. Please try again.</div>';
+    var m=e.message||'';
+    var msg='Something went wrong. Please wait a moment and try again.';
+    if(m.indexOf('overloaded')!==-1||m.indexOf('529')!==-1||m.indexOf('503')!==-1){msg='The server is temporarily busy. Please wait 30 seconds and send your response again.';}
+    else if(m.indexOf('429')!==-1){msg='Too many requests. Please wait a minute and try again.';}
+    else if(m.indexOf('401')!==-1||m.indexOf('403')!==-1){msg='Authentication error. Please contact PD Creatives for assistance.';}
+    document.getElementById('errArea').innerHTML='<div class="error">'+msg+'</div>';
     document.getElementById('sendBtn').disabled=false;
   }
 }
@@ -262,7 +267,10 @@ Be specific not generic. Professional language for an internal consulting docume
     showSummary();
   }catch(e){
     removeTyping();
-    document.getElementById('errArea').innerHTML='<div class="error">Summary generation failed: '+e.message+'</div>';
+    var m2=e.message||'';
+    var smsg='Summary generation failed. Please wait a moment and try again, or contact PD Creatives.';
+    if(m2.indexOf('overloaded')!==-1||m2.indexOf('529')!==-1){smsg='The server is temporarily busy. Please wait 30 seconds and click send again.';}
+    document.getElementById('errArea').innerHTML='<div class="error">'+smsg+'</div>';
   }
 }
 
