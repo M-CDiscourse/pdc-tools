@@ -275,7 +275,7 @@ function showSummary(){
 }
 
 function copySum(){navigator.clipboard.writeText(summaryText).then(()=>{const b=event.target;b.textContent='Copied!';setTimeout(()=>b.textContent='Copy Summary',2000)})}
-function emailSum(){window.location.href='mailto:miranda.hawk123@gmail.com?subject='+encodeURIComponent('PD Creatives Needs Assessment: '+district+' – '+ROLES[role].label)+'&body='+encodeURIComponent(summaryText)}
+function emailSum(){window.location.href='mailto:info@pdcreatives.com?subject='+encodeURIComponent('PD Creatives Needs Assessment: '+district+' – '+ROLES[role].label)+'&body='+encodeURIComponent(summaryText)}
 function resetApp(){role=null;district='';respondent='';history=[];exchanges=0;summaryText='';document.getElementById('summaryScreen').style.display='none';document.getElementById('chatArea').innerHTML='';document.getElementById('welcomeScreen').style.display='block';document.querySelectorAll('.role-btn').forEach(b=>b.classList.remove('sel'));document.getElementById('districtName').value='';document.getElementById('respondentName').value='';document.getElementById('startBtn').disabled=true;document.getElementById('pf').style.width='0%';document.querySelectorAll('.pill').forEach(p=>p.classList.remove('active'));document.getElementById('userInput').disabled=false;document.getElementById('sendBtn').disabled=false}
 </script>
 </body>
